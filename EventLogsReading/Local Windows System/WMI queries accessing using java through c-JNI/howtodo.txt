@@ -1,0 +1,22 @@
+Step-1:Create java file to call native method.
+
+Step-2:Compile java file using command
+              javac <classname>.java
+              
+Step-3:Create header file for java file.
+              javah <classname>
+                    //this step is to include the java file as header in native c/c++ code
+                    
+Step-4:Compile c/c++ code 
+          //Be sure with the bit of compilers you compile
+                    --->this compatability error causes unsatisfied linker error.
+          
+         /** If using visual studio command for compiling is
+              For 32 bit:
+                -->cl /EHsc sample.cpp -I"C:\Program Files (x86)\Java\jdk1.8.0_162\include" -I"C:\Program Files (x86)\Java\jdk1.8.0_162\include\win32" -Fesample.dll -MD -LD
+              For 64 bit:
+                -->cl /EHsc sample.cpp -I"C:\Program Files\Java\jdk1.8.0_77\include" -I"C:\Program Files\Java\jdk1.8.0_77\include\win32" -Fesample.dll -MD -LD
+          **/
+          
+Step-5:Run the java code
+              java <classname>
